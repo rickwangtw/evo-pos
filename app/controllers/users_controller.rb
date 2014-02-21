@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     end
   end
   def admin_create
-    @user = User.new(params.require(:user).permit(:login, :password, :email, :is_admin))
+    @user = User.new(params.require(:user).permit(:login, :password, :password_confirmation, :email, :is_admin))
     @user.is_admin = true
     if @user.save
       redirect_to action: :index
@@ -24,6 +24,6 @@ class UsersController < ApplicationController
   end
   private
   def user_params
-    params.require(:user).permit(:login, :password, :email)
+    params.require(:user).permit(:login, :password, :password_confirmation, :email)
   end
 end

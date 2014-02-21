@@ -1,4 +1,5 @@
 EvoPos::Application.routes.draw do
+  get "users/new"
   resources :users
 
   get "adminsetup/index"

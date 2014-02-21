@@ -1,2 +1,19 @@
 <h1>Admin Setup</h1>
-<p>Admin account has not been setup yet.</p>
+<p>Administrator account has not been setup yet.</p>
+<div class="Sign_Form">
+    <%= form_for(:user, :url => {:controller => 'users', :action => 'admin_create'}) do |f| %>
+      <p> User:</br> <%= f.text_field :login%> </p>
+      <p> Email:</br> <%= f.text_field :email%> </p>
+      <p> Password:</br> <%= f.password_field :password%></p>
+      <p> Password Confirmation:</br> <%= f.password_field :password_confirmation%> </p>
+      <%= f.submit :Signup %>
+    <% end %>
+  <% if @user.errors.any? %>
+    <ul class="Signup_Errors">
+      <% for message_error in @user.errors.full_messages %>
+        <li>* <%= message_error %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
+

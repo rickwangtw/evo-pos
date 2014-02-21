@@ -1,4 +1,5 @@
 EvoPos::Application.routes.draw do
+  get "sessions/login"
   get "users/new"
   resources :users
 
@@ -6,6 +7,9 @@ EvoPos::Application.routes.draw do
   root 'adminsetup#index'
 
   post 'users/admin_create'
+  get "login", :to => "sessions#login"
+  get "/sessions/login_attempt", :to => "sessions#login_attempt"
+  post '/sessions/login_attempt'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

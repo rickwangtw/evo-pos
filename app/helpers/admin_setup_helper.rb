@@ -1,0 +1,2 @@
+module AdminSetupHelper
+end

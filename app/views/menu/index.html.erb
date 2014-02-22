@@ -12,8 +12,13 @@
       <td><%= menu.name %></td>
       <td><%= menu.description %></td>
       <td><%= menu.is_available %></td>
-      <td><%= link_to 'Edit', edit_menu_path(menu) %></td>
+      <% if @is_authorized_user %>
+        <td><%= link_to 'Edit', edit_menu_path(menu) %></td>
+      <% end %>
     </tr>
   <% end %>
 </table>
+<% if @is_authorized_user %>
+  <%= link_to 'New', new_menu_path %>
+<% end %>
 

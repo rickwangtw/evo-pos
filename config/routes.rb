@@ -6,6 +6,7 @@ EvoPos::Application.routes.draw do
   get "sessions/login"
   get "users/new"
   resources :users
+  resources :menu
 
   get "adminsetup/index"
   root 'adminsetup#index'

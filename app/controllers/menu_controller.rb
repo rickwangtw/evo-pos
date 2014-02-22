@@ -24,6 +24,11 @@ class MenuController < ApplicationController
   def show
     @menu = Menu.find(params[:id])
   end
+  def destroy
+    @menu = Menu.find(params[:id])
+    @menu.destroy
+    redirect_to menu_index_path
+  end
   def index
     @menus = Menu.all
   end

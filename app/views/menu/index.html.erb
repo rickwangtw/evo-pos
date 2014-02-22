@@ -12,6 +12,7 @@
       <td><%= menu.name %></td>
       <td><%= menu.description %></td>
       <td><%= menu.is_available %></td>
+      <td><%= link_to 'Edit', edit_menu_path(menu) %></td>
     </tr>
   <% end %>
 </table>

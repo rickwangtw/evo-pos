@@ -1,11 +1,8 @@
-<% @page_title = "Add Menu Item" %>
-<h1>Add Menu Item</h1>
-
-<%= form_for(:menu, :url => {:controller => 'menu', :action => 'create'}) do |f| %>
+<%= form_for @menu do |f| %>
   <p> Name:</br> <%= f.text_field :name%> </p>
   <p> Description:</br> <%= f.text_field :description%> </p>
   <p> Available</br> <%= f.check_box :is_available%></p>
-  <%= f.submit :Add %>
+  <%= f.submit :Update %>
 <% end %>
 <% if @menu.errors.any? %>
   <ul class="MenuAdd_Errors">

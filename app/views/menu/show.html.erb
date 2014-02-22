@@ -1,0 +1,18 @@
+<p>
+	<strong>Name:</strong>
+	<%= @menu.name %>
+</p>
+
+<p>
+	<strong>Description:</strong>
+	<%= @menu.description %>
+</p>
+
+<p>
+	<strong>Is Available:</strong>
+	<%= @menu.is_available %>
+</p>
+
+<%= link_to 'Back', menu_index_path %>
+<%= link_to 'Edit', edit_menu_path(@menu) %>
+

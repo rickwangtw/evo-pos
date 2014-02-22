@@ -1,0 +1,17 @@
+<% @page_title = "Add Menu Item" %>
+<div class="MenuAdd_Form">
+  <h1>Add Menu Item</h1>
+  <%= form_for(:item, :url => {:controller => 'menu', :action => 'create'}) do |f| %>
+    <p> Name:</br> <%= f.text_field :name%> </p>
+    <p> Description:</br> <%= f.text_field :description%> </p>
+    <p> Available</br> <%= f.check_box :is_available%></p>
+    <%= f.submit :Add %>
+  <% end %>
+  <% if @menu.errors.any? %>
+    <ul class="MenuAdd_Errors">
+      <% for message_error in @item.errors.full_messages %>
+        <li>* <%= message_error %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>

@@ -3,7 +3,7 @@ class MenuController < ApplicationController
     @menu = Menu.new
   end
   def create
-    @menu = Menu.new
+    @menu = Menu.new(params[:item].permit(:name, :description, :is_available))
     if @menu.save
       redirect_to action: :index
     else

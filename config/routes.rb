@@ -1,4 +1,5 @@
 EvoPos::Application.routes.draw do
+  get "menu/index"
   get "poshome/index"
   get "poshome/order"
   get "poshome/build"

@@ -12,6 +12,7 @@ EvoPos::Application.routes.draw do
   resources :orders do
     resources :order_items
   end
+  post 'orders/:id' => 'orders#done'
 
   get "adminsetup/index"
   root 'adminsetup#index'

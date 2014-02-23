@@ -29,4 +29,11 @@ class OrdersController < ApplicationController
     order.save
     redirect_to action: :new
   end
+  def done
+    order_id = params[:id]
+    order = Order.find_by_id(order_id)
+    order.fulfilled_date = Time.new
+    order.save
+    redirect_to poshome_build_path
+  end
 end

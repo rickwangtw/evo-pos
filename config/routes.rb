@@ -6,8 +6,12 @@ EvoPos::Application.routes.draw do
   get "poshome/admin"
   get "sessions/login"
   get "users/new"
+  post "orders/create"
   resources :users
   resources :menu
+  resources :orders do
+    resources :order_items
+  end
 
   get "adminsetup/index"
   root 'adminsetup#index'

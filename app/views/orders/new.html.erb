@@ -1,0 +1,22 @@
+<% @page_title = "Add Order" %>
+<h1>New Order</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Quantity</th>
+  </tr>
+
+  <%= form_tag 'create' do |f| %>
+    <% @order_items.each do |order| %>
+      <tr>
+        <td><%= @menu.find_by(id: order.menu_id).name %></td>
+        <td><%= @menu.find_by(id: order.menu_id).description %></td>
+        <td> <%= select_tag "#{order.menu_id}-quantity", options_for_select(@available_integer) %> </td>
+
+      </tr>
+    <% end %>
+  <%= submit_tag 'Submit' %>
+  <% end %>
+</table>

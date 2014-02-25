@@ -3,6 +3,7 @@ EvoPos::Application.routes.draw do
   get "poshome/index"
   get "poshome/order"
   get "poshome/build"
+  get "poshome/settings"
   get "poshome/admin"
   get "sessions/login"
   get "users/new"

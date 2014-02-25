@@ -16,6 +16,10 @@ class PoshomeController < ApplicationController
       end
     end
   end
+  def settings
+    @user = User.find_by(id: cookies[:user_id])
+    redirect_to edit_user_path(@user)
+  end
   def admin
   end
 end

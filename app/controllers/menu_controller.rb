@@ -16,6 +16,7 @@ class MenuController < ApplicationController
   end
   def update
     @menu = Menu.find(params[:id])
+    @menu.modified_by = cookies[:user_id].to_i
     if @menu.update(params[:menu].permit(:name, :description, :is_available))
       redirect_to action: :index
     else

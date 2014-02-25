@@ -12,6 +12,12 @@
       <td><%= user.login %></td>
       <td><%= user.email %></td>
       <td><%= user.is_admin %></td>
+      <% if @is_authorized_user %>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+      <% end %>
     </tr>
   <% end %>
 </table>
+<% if @is_authorized_user %>
+  <%= link_to 'New', new_user_path %>
+<% end %>

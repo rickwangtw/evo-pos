@@ -1,0 +1,11 @@
+<%= form_for(@user) do |f| %>
+  <p> User:</br> <%= f.text_field :login%> </p>
+  <p> Email:</br> <%= f.text_field :email%> </p>
+  <p> Password:</br> <%= f.password_field :password%></p>
+  <p> Password Confirmation:</br> <%= f.password_field :password_confirmation%> </p>
+  <% if @is_authorized_user %>
+    <p> Is Admin:</br> <%= f.check_box :is_admin %> </p>
+  <% end %>
+
+  <%= f.submit %>
+<% end %>

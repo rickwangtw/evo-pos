@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   end
   def create
     @user = User.new(user_params)
+    @user.created_by = cookies[:user_id].to_i
     if @user.save
       redirect_to action: :index
     else
@@ -26,6 +27,7 @@ class UsersController < ApplicationController
   end
   def update
     @user = User.find(params[:id])
+    @user.modified_by = cookies[:user_id].to_i
     if @user.update(params[:user].permit(:login, :password, :password_confirmation, :email, :is_admin))
       redirect_to action: :index
     else

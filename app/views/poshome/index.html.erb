@@ -2,5 +2,7 @@
 <div class="Selection_Form">
 <%= button_to "Order", {:controller => :poshome, :action => "order" }, :method => :get %>
 <%= button_to "Build", {:controller => :poshome, :action => "build" }, :method => :get %>
-<%= button_to "Admin", {:controller => :poshome, :action => "admin" }, :method => :get %>
+<% if @is_authorized_user %>
+  <%= button_to "Admin", {:controller => :poshome, :action => "admin" }, :method => :get %>
+<% end %>
 </div>

@@ -1,5 +1,6 @@
 class PoshomeController < ApplicationController
   def index
+    @is_authorized_user = User.find_by(id: cookies[:user_id]).is_admin
   end
   def order
     @menus = Menu.all

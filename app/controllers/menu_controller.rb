@@ -4,8 +4,7 @@ class MenuController < ApplicationController
   end
   def create
     @menu = Menu.new(params[:menu].permit(:name, :description, :is_available))
-    user_name = User.find_by(id: cookies[:user_id]).email
-    @menu.added_by = user_name
+    @menu.added_by = cookies[:user_id].to_i
     if @menu.save
       redirect_to action: :index
     else

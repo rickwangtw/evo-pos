@@ -26,6 +26,8 @@ class OrdersController < ApplicationController
     end
     order = Order.new
     order.order_items = order_items
+    user_name = User.find_by(id: cookies[:user_id]).email
+    order.ordered_by = user_name
     order.save
     redirect_to action: :new
   end
@@ -33,6 +35,8 @@ class OrdersController < ApplicationController
     order_id = params[:id]
     order = Order.find_by_id(order_id)
     order.fulfilled_date = Time.new
+    user_name = User.find_by(id: cookies[:user_id]).email
+    order.built_by = user_name
     order.save
     redirect_to poshome_build_path
   end
